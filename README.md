@@ -107,11 +107,12 @@ The installation to make this work in your environment is going to be a 🐻 bea
 Make sure you have Jest, React Testing Library, and React Testing Library DOM configured.
 
 1. [Setup Jest](https://jestjs.io/docs/getting-started)
-1. [Setup React Testing Library](https://testing-library.com/docs/react-testing-library/setup)
-1. [Add Patch Package](https://github.com/ds300/patch-package)
+2. [Setup React Testing Library](https://testing-library.com/docs/react-testing-library/setup)
+3. [Add Patch Package](https://github.com/ds300/patch-package)
 
 ### Install Slate Test Utils
 
+1. Install slate-test-utils
 ```sh
 yarn add -D slate-test-utils
 
@@ -120,7 +121,9 @@ yarn add -D slate-test-utils
 npm install -D slate-test-utils
 ```
 
-Now this is where the black magic comes into play. We need to patch your `node_modules` with some things that will make JSDOM play friendly with our test harness. Go to this repo and find the `/patches` folder and copy them into a `/patches` folder at the root of your repo. Once you have done that...
+2. Install patches folder
+Now this is where the black magic comes into play. We need to patch your `node_modules` with some things that will make JSDOM play friendly with our test harness.
+Go to this repo and find the `/patches` folder and copy them into a `/patches` folder at the root of your repo. Once you have done that...
 
 ```sh
 yarn install
@@ -132,6 +135,7 @@ npm install
 
 That should apply your patches to your `node_modules`. You may get a warning if the versions mismatch, but long as you don't get an error you are good to go. If you get an error you will need to manually create your own patches based off the ones in this repo.
 
+3. Configure jest 
 Lastly, you need to add this line to your `setupTests.js` file for Jest so we can mock things.
 
 ```js
